@@ -165,6 +165,7 @@ class SolrSearch_ResultsController
             'hl.fragsize'         => get_option('solr_search_hl_fragsize'),
             'hl.maxAnalyzedChars' => get_option('solr_search_hl_max_analyzed_chars'),
             'hl.requireFieldMatch'=> 'false',
+            'hl.encoder'           => 'html',
             'hl.fl'               => '*_t'
 
         );

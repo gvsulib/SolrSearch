@@ -139,24 +139,39 @@
       <div class="clear"></div>
       <!-- Highlighting. -->
       <?php if (get_option('solr_search_hl')): ?>
-
+      <?php $item = get_db()->getTable($doc->model)->find($doc->modelid); ?>
         <div class="snippets">
-        <P>Your search matched in:</P>
-        <ul class="hl">
-          <?php foreach($results->highlighting->{$doc->id} as $id => $field): ?>
+        <?php 
+          $test = (array) $results->highlighting->{$doc->id};
+          $numberSnippets = count($test);
+
+          if ($numberSnippets > 0) {
+            echo "<P>Your search matched in:</P>
+            <ul class='hl'>";
+            foreach($results->highlighting->{$doc->id} as $id => $field) {
+             
+              foreach($field as $hl) {
                 
-            <?php foreach($field as $hl): ?>
-                
-                   <?php echo '<li class="snippet"><b>' . SolrSearch_Helpers_View::lookupElement($id) . '</b>: ' . strip_tags($hl, '<em>') . '</li>';
+                   echo '<li class="snippet"><b>' . SolrSearch_Helpers_View::lookupElement($id) . '</b>: ' . strip_tags($hl, '<em>') . '</li>';
                   
-                  ?>
-            <?php endforeach; ?>
-          <?php endforeach; ?>
-        </ul>
+                
+              }
+            }
+            echo "</ul>";
+
+          } else {
+            echo metadata($item, array('Dublin Core', 'Description'), array('no_escape' => false));
+                  
+          }      
+        ?>
+                
+
+          
+       
         </div>
       <?php endif; ?>
 
-      <?php $item = get_db()->getTable($doc->model)->find($doc->modelid); ?>
+      
       <?php if ($recordImage = record_image($item, 'square_thumbnail', array('alt' => $title))): ?>
       
                     <?php echo link_to($item, 'show', $recordImage, array('class' => 'result-image')); ?>
