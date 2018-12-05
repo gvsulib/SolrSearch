@@ -14,20 +14,24 @@
 <?php echo head(array('title' => __('Simple Search')));?>
 
 
-<h1><?php echo __('Search the Collection'); ?></h1>
+<h1><?php echo __('Search Results'); ?></h1>
 
 
 <!-- Search form. -->
 <div id="gvsu-cf_header-search" role="search">
-  <form id="search-form">
+  <form id="search-form" style="margin-bottom: 20px">
     
-    <a href="/items/search">Advanced Search</a>
     
+    <label for="q">Search all Digital Collections</label>
       <input type="text" id="query" title="<?php echo __('Search keywords') ?>" name="q" value="<?php
         echo array_key_exists('q', $_GET) ? $_GET['q'] : '';
       ?>" />
     <button name="submit_search" id="submit_search" type="submit" value="Search">Search</button>
+	 
+	    <P><a id="advancedLink" href="/items/search">Advanced Search</a>
   </form>
+ 
+  
 </div>
 
 
@@ -179,7 +183,7 @@
             
     
       </div>
-      
+      <div class="clear"></div>
       <?php endforeach; ?>
 
   </div>
