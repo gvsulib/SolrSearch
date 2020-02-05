@@ -27,8 +27,8 @@
         echo array_key_exists('q', $_GET) ? $_GET['q'] : '';
       ?>" />
     <button name="submit_search" id="submit_search" type="submit" value="Search">Search</button>
-	 
-	    <P><a id="advancedLink" href="/items/search">Advanced Search</a>
+ 
+    <!--<P><a id="advancedLink" href="/items/search">Advanced Search</a>-->
   </form>
  
   
