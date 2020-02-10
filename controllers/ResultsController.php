@@ -24,13 +24,30 @@ class SolrSearch_ResultsController
 
     /**
      * Intercept queries from the simple search form.
+	*rewritten to honor facets passed from simple search
      */
     public function interceptorAction()
     {
-        $this->_redirect('solr-search?'.http_build_query(array(
-            'q' => $this->_request->getParam('query')
-        )));
-    }
+
+	if ($this->_request->getParam('facet') != null) {
+
+		//can't pass double quotes in a GEt [parameter, but that's what the Solr interpreter insists on.
+		//so I'm using single quotes in the query string, and replacing them here with double quotes
+
+		$dblQuoteParam = str_replace("'", "\"", $this->_request->getParam('facet'));
+		$this->_redirect('solr-search?'.http_build_query(array(
+                        'q' => $this->_request->getParam('query'),
+			'facet' => $dblQuoteParam,
+                        )));
+	} else {
+	
+        	$this->_redirect('solr-search?'.http_build_query(array(
+            		'q' => $this->_request->getParam('query')
+	        		)));
+    
+		}
+     }
+
 
 
     /**
