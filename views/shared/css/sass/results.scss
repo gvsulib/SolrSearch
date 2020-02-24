@@ -47,13 +47,47 @@ ul {
 }
 
 #solr-facets {
-  width: 20%;
-  float: left;
+  	width: 20%;
+  	float: left;
+	background-color: #eee;
+	padding: 1em 1%;
+	border-right: 1px solid #bbb;
+
+
 }
 
-#solr-results {
-  margin-left: 22%;
+#solr-facets ul {
+                list-style: none;
+                margin-left: 0;
+}
+ 
+#solr-facets ul li {
+    margin-bottom: .5em;
+}
+ 
+#solr-facets strong {
+    border-bottom: 1px solid
+    #000;
+    display: block;
+    margin-bottom: .75em;
+}
+ 
+.result {
+    border-top: 1px solid
+    #bbb;
+}
+ 
+@media screen and (max-width: 999px) {
+                #solr-facets {
+                width: 100%;
+                float: none;
+                }
+}
 
+
+#solr-results {
+	margin-left: 2%;
+	float: left;
   div.result {
     margin: 1em 0;
 
