@@ -155,7 +155,12 @@
             foreach($results->highlighting->{$doc->id} as $id => $field) {
              
               foreach($field as $hl) {
-                
+		   if (strlen($hl) > 300) {
+                   	$match = strpos($hl, '<em>');
+			$beginning = $match - 125;
+			if ($beginning < 0) {$beginning = 0;}
+			$hl = '...' . substr($hl, $beginning, 300) . '...';
+	           }
                    echo '<li class="snippet"><b>' . SolrSearch_Helpers_View::lookupElement($id) . '</b>: ' . strip_tags($hl, '<em>') . '</li>';
                   
                 

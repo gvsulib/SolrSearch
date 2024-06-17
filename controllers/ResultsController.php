@@ -163,7 +163,9 @@ class SolrSearch_ResultsController
             'hl'                  => get_option('solr_search_hl')?'true':'false',
             'hl.snippets'         => get_option('solr_search_hl_snippets'),
             'hl.fragsize'         => get_option('solr_search_hl_fragsize'),
-            'hl.maxAnalyzedChars' => get_option('solr_search_hl_max_analyzed_chars'),
+            'hl.maxAnalyzedChars' => '51200',
+	    'hl.usePhraseHighlighter'=> 'false',
+	    'hl.method'           =>'unified',
             'hl.requireFieldMatch'=> 'false',
             'hl.encoder'           => 'html',
             'hl.fl'               => '*_t'
