@@ -49,7 +49,7 @@ class SolrSearch_Helpers_View
      *
      * @return string Link to file.
      */
-    public static function getImagePath($type='fullsize', $fileId)
+    public static function getImagePath($type='fullsize', $fileId=null)
     {
         $db   = get_db();
         $file = $db->getTable('File')->find($fileId);
