@@ -41,6 +41,7 @@
   <ul class="results-applied-facets">
 
     <!-- Get the applied facets. -->
+    <?php $selectedValues = array(); ?>
     <?php foreach (SolrSearch_Helpers_Facet::parseFacets() as $f): ?>
       <li class="results-applied-facets-items">
 
@@ -48,7 +49,7 @@
         <?php $label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
         <span class="applied-facet-label"><?php echo $label; ?></span> >
         <span class="applied-facet-value"><?php echo $f[1]; ?></span>
-
+	<?php if ($label == "Subject" OR $label == "Type") {$selectedValues[] = $f[1];} ?>
         <!-- Remove link. -->
         <?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
         (<a href="<?php echo $url; ?>">remove</a>)
@@ -63,8 +64,8 @@
 
 <!-- Facets. -->
 <div id="solr-facets">
-
-  <h2><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h2>
+  
+<h2><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h2>
 
   <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
 
@@ -77,7 +78,8 @@
 
       <ul>
         <!-- Facets. -->
-        <?php foreach ($facets as $value => $count): ?>
+	<?php foreach ($facets as $value => $count): ?>
+	<?php if (in_array($value, $selectedValues, true)) {continue;}?>
           <li class="<?php echo $value; ?>">
 
             <!-- Facet URL. -->
