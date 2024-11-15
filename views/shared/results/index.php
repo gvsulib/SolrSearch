@@ -13,11 +13,18 @@
 <?php queue_css_file('results'); ?>
 <?php echo head(array('title' => __('Simple Search')));?>
 
+<div class="wrapper">
+  <div class="content" style="padding-bottom: 1em;">
+    <div class="row-gutter">
+      <div class="col-12">
+        <h1 class="h2"><?php echo __('Search Results'); ?></h1>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h1><?php echo __('Search Results'); ?></h1>
 
-
-<!-- Search form. -->
+<!-- Search form.
 <div id="gvsu-cf_header-search" role="search">
   <form id="search-form" style="margin-bottom: 20px">
     
@@ -27,44 +34,50 @@
         echo array_key_exists('q', $_GET) ? $_GET['q'] : '';
       ?>" />
     <button name="submit_search" id="submit_search" type="submit" value="Search">Search</button>
- 
-    <!--<P><a id="advancedLink" href="/items/search">Advanced Search</a>-->
   </form>
  
   
-</div>
+</div-->
 
 
 <!-- Applied facets. -->
-<div id="solr-applied-facets">
-<P>Applied Limits:</P>
-  <ul class="results-applied-facets">
+<div class="wrapper">
+  <div class="content" style="padding: 1em 3em;">
+    <div class="row-gutter">
+      <div id="solr-applied-facets" class="col-12">
+        <h1 class="h4">Applied Limits:</h1>
+          <ul class="results-applied-facets">
 
-    <!-- Get the applied facets. -->
-    <?php foreach (SolrSearch_Helpers_Facet::parseFacets() as $f): ?>
-      <li class="results-applied-facets-items">
+            <!-- Get the applied facets. -->
+            <?php foreach (SolrSearch_Helpers_Facet::parseFacets() as $f): ?>
+              <li class="results-applied-facets-items">
 
-        <!-- Facet label. -->
-        <?php $label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
-        <span class="applied-facet-label"><?php echo $label; ?></span> >
-        <span class="applied-facet-value"><?php echo $f[1]; ?></span>
+                <!-- Facet label. -->
+                <?php $label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
+                <span class="applied-facet-label"><?php echo $label; ?></span> >
+                <span class="applied-facet-value"><?php echo $f[1]; ?></span>
 
-        <!-- Remove link. -->
-        <?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
-        (<a href="<?php echo $url; ?>">remove</a>)
+                <!-- Remove link. -->
+                <?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
+                (<a href="<?php echo $url; ?>">remove</a>)
 
-      </li>
-    <?php endforeach; ?>
+              </li>
+            <?php endforeach; ?>
 
-  </ul>
-
+          </ul>
+      </div>
+</div>
+</div>
 </div>
 
 
 <!-- Facets. -->
-<div id="solr-facets">
+<div class="wrapper">
+  <div class="content">
+    <div class="row-gutter">
+        <div id="solr-facets" class="col-3 col-md-12">
 
-  <h2><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h2>
+  <h1 class="h2"><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h1>
 
   <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
 
@@ -73,7 +86,7 @@
 
       <!-- Facet label. -->
       <?php $label = SolrSearch_Helpers_Facet::keyToLabel($name); ?>
-      <strong><?php echo $label; ?></strong>
+      <h1 class="h3"><?php echo $label; ?></h1>
 
       <ul>
         <!-- Facets. -->
@@ -102,12 +115,12 @@
 
 
 <!-- Results. -->
-<div id="solr-results">
+<div id="solr-results" class="col-9 col-sm-12">
 
   <!-- Number found. -->
-  <h2 id="num-found">
+
     <?php echo $results->response->numFound; ?> results
-  </h2>
+
 
   <?php
   if ($results->response->numFound < 1) {
@@ -115,6 +128,7 @@
 
   }
   ?>
+
 
   <?php foreach ($results->response->docs as $doc): ?>
 
@@ -140,11 +154,17 @@
         <!--<span class="result-type">(<?php //echo $doc->resulttype; ?>)</span>-->
 
       </div>
-      <div class="clear"></div>
+      <div class="row-gutter">
+        <div class="col-4 col-md-6 col-sm-12" id="search_thumbnail">
+           <?php if ($recordImage = record_image($item, 'square_thumbnail', array('alt' => $title))): ?>
+      
+                    <?php echo link_to($item, 'show', $recordImage, array('class' => 'result-image')); ?>
+            <?php endif; ?>
+        </div>
+        <div class="col-8 col-md-12" id="snippets">
       <!-- Highlighting. -->
       <?php if (get_option('solr_search_hl')): ?>
       <?php $item = get_db()->getTable($doc->model)->find($doc->modelid); ?>
-        <div class="snippets">
         <?php 
           $test = (array) $results->highlighting->{$doc->id};
           $numberSnippets = count($test);
@@ -174,6 +194,8 @@
           }      
         ?>
                 
+        </div>
+      </div>
 
           
        
@@ -181,16 +203,13 @@
       <?php endif; ?>
 
       
-      <?php if ($recordImage = record_image($item, 'square_thumbnail', array('alt' => $title))): ?>
-      
-                    <?php echo link_to($item, 'show', $recordImage, array('class' => 'result-image')); ?>
-            <?php endif; ?>
-            
-    
-      </div>
+     
+  
       <div class="clear"></div>
       <?php endforeach; ?>
-
+</div>
+</div>
+</div>
   </div>
 
 
