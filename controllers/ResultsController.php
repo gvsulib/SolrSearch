@@ -11,7 +11,7 @@
 class SolrSearch_ResultsController
     extends Omeka_Controller_AbstractActionController
 {
-
+    protected $_fields;
 
     /**
      * Cache the facets table.
@@ -110,8 +110,8 @@ class SolrSearch_ResultsController
     protected function _getQuery($limitToPublicItems = true)
     {
 
-        // Get the `q` GET parameter.
-        $query = $this->_request->q;
+	    // Get the `q` GET parameter.
+	$query = '(' . trim((string) $this->_request->q) . ')';
 
         // If defined, replace `:`; otherwise, revert to `*:*`.
         // Also, clean it up some.
@@ -126,8 +126,7 @@ class SolrSearch_ResultsController
         }
 
         // Get the `facet` GET parameter
-        $facet = $this->_request->facet;
-
+        $facet = trim((string) $this->_request->facet);
         // Form the composite Solr query.
         if (!empty($facet)) $query .= " AND {$facet}";
 

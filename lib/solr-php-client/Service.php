@@ -165,7 +165,7 @@ class Apache_Solr_Service
 	 *
 	 * @var string
 	 */
-	protected $_pingUrl, $_updateUrl, $_searchUrl, $_threadsUrl;
+	protected $_extractUrl, $_pingUrl, $_updateUrl, $_searchUrl, $_threadsUrl;
 
 	/**
 	 * Keep track of whether our URLs have been constructed
@@ -307,7 +307,7 @@ class Apache_Solr_Service
 		// 5.1.2 the arg_separator parameter was not available, so don't use it
 		if ($this->_queryBracketsEscaped)
 		{
-			$queryString = http_build_query($params, null, $this->_queryStringDelimiter);
+			$queryString = http_build_query($params, '', $this->_queryStringDelimiter);
 			return preg_replace('/%5B(?:[0-9]|[1-9][0-9]+)%5D=/', '=', $queryString);
 		}
 		else
@@ -772,7 +772,7 @@ class Apache_Solr_Service
 						$fieldBoost = false;
 					}
 
-					$multivalue = htmlspecialchars($multivalue, ENT_NOQUOTES, 'UTF-8');
+					$multivalue = htmlspecialchars((string) $multivalue, ENT_NOQUOTES, 'UTF-8');
 
 					$xml .= '>' . $multivalue . '</field>';
 				}
@@ -786,7 +786,7 @@ class Apache_Solr_Service
 					$xml .= ' boost="' . $fieldBoost . '"';
 				}
 
-				$value = htmlspecialchars($value, ENT_NOQUOTES, 'UTF-8');
+				$value = htmlspecialchars((string) $value, ENT_NOQUOTES, 'UTF-8');
 
 				$xml .= '>' . $value . '</field>';
 			}

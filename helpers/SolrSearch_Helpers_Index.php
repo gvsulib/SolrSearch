@@ -54,17 +54,35 @@ class SolrSearch_Helpers_Index
             $field = $fields->findByText($text);
 
             // Set text field.
-            if ($field->is_indexed) {
-                $doc->setMultiValue($field->indexKey(), $text->text);
+            if ($field && $field->is_indexed) {
+                $doc->setMultiValue($field->indexKey(), self::filterHTML($text->text, $text->html));
             }
 
             // Set string field.
-            if ($field->is_facet) {
-                $doc->setMultiValue($field->facetKey(), $text->text);
+            if ($field && $field->is_facet) {
+                $doc->setMultiValue($field->facetKey(), self::filterHTML($text->text, $text->html));
             }
         }
     }
 
+    /**
+     * Strip HTML entities and elements out of text
+     *
+     * @param ElementText $text
+     * @param boolean $filter
+     * @return mixed|string
+     * @author Ben Florin <benjamin.florin@bc.edu>
+     */
+    public static function filterHTML($text, $filter = false)
+    {
+        if ($filter) {
+            $text = str_replace('&nbsp;', ' ', (string) $text);
+            $text = html_entity_decode($text, ENT_QUOTES | ENT_HTML5);
+            $text = strip_tags($text);
+        }
+
+        return $text;
+    }
 
     /**
      * This takes an Omeka_Record instance and returns a populated
