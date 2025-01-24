@@ -126,8 +126,10 @@
     <!-- Document. -->
     <div class="result">
 
+    <div class="row content">
+
       <!-- Header. -->
-      <div class="result-header">
+      <div class="result-header col-12">
 
         <!-- Record URL. -->
         <?php $url = SolrSearch_Helpers_View::getDocumentUrl($doc); ?>
@@ -145,7 +147,15 @@
         <!--<span class="result-type">(<?php //echo $doc->resulttype; ?>)</span>-->
 
       </div>
-      <div class="clear"></div>
+    </div>
+      <div class="row content">
+        <div class="col-3 col-md-6 col-sm-12">
+            <?php if ($recordImage = record_image($item, 'square_thumbnail', array('alt' => $title))): ?>
+      
+                    <?php echo link_to($item, 'show', $recordImage, array('class' => 'result-image')); ?>
+            <?php endif; ?>
+          </div>
+          <div class="col-9 col-md-6 col-sm-12">
       <!-- Highlighting. -->
       <?php if (get_option('solr_search_hl')): ?>
       <?php $item = get_db()->getTable($doc->model)->find($doc->modelid); ?>
@@ -180,17 +190,14 @@
         ?>
                 
 
-          
+          </div>
+        </div>
        
         </div>
       <?php endif; ?>
 
       
-      <?php if ($recordImage = record_image($item, 'square_thumbnail', array('alt' => $title))): ?>
-      
-                    <?php echo link_to($item, 'show', $recordImage, array('class' => 'result-image')); ?>
-            <?php endif; ?>
-            
+    
     
       </div>
       <div class="clear"></div>
