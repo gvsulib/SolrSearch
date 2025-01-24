@@ -13,9 +13,15 @@
 <!--?php queue_css_file('results'); ?-->
 <?php echo head(array('title' => __('Simple Search')));?>
 
-
+<div class="wrapper">
+  <div class="content">
+    <div class="row">
+      <div class="col-12">
 <h1 class="h2"><?php echo __('Search Results'); ?></h1>
-
+</div>
+</div>
+</div>
+</div>
 
 <!-- Search form. -->
 <!--div id="gvsu-cf_header-search" role="search">
