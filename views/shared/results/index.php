@@ -40,7 +40,7 @@
 </div-->
 
 <div class="wrapper">
-  <div class="row content">
+  <div class="row-gutter content">
 
 <!-- Applied facets. -->
 <div id="solr-applied-facets" class="col-12">
@@ -68,7 +68,7 @@
 </div>
 </div>
 
-<div class="row content">
+<div class="row-gutter content">
 
 
 <!-- Facets. -->
@@ -141,13 +141,13 @@
         <?php $url = SolrSearch_Helpers_View::getDocumentUrl($doc); ?>
 
         <!-- Title. -->
-        <a href="<?php echo $url; ?>" class="result-title"><?php
+        <h3><a href="<?php echo $url; ?>" class="result-title"><?php
                 $title = is_array($doc->title) ? $doc->title[0] : $doc->title;
                 if (empty($title)) {
-                    $title = '<i>' . __('Untitled') . '</i>';
+                    $title = '<em>' . __('Untitled') . '</em>';
                 }
                 echo $title;
-            ?></a>
+            ?></a></h3>
 
         <!-- Result type. -->
         <!--<span class="result-type">(<?php //echo $doc->resulttype; ?>)</span>-->
