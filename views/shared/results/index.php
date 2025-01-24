@@ -60,7 +60,7 @@
 <div class="wrapper">
   <div class="content">
     <div class="row-gutter">
-        <div id="solr-facets" class="col-3 col-md-12">
+        <div id="solr-facets" class="col-3 col-sm-12">
 
   <h1 class="h2"><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h1>
 <div id="solr-facets">
@@ -101,7 +101,7 @@
 
 
 <!-- Results. -->
-<div id="solr-results" class="col-9 col-md-12">
+<div id="solr-results" class="col-9 col-sm-12">
 
   <!-- Number found. -->
   <h2 id="num-found">
@@ -141,13 +141,13 @@
       </div>
       <div clas="content">
       <div class="row-gutter">
-        <div class="col-4 col-md-6 col-sm-12" id="search_thumbnail">
+        <div class="col-3 col-md-6 col-sm-12" id="search_thumbnail">
            <?php if ($recordImage = record_image($item, 'square_thumbnail', array('alt' => $title))): ?>
       
                     <?php echo link_to($item, 'show', $recordImage, array('class' => 'result-image')); ?>
             <?php endif; ?>
         </div>
-        <div class="col-8 col-md-12" id="snippets">
+        <div class="col-9 col-md-6 col-sm-12" id="snippets">
       <!-- Highlighting. -->
       <?php if (get_option('solr_search_hl')): ?>
       <?php $item = get_db()->getTable($doc->model)->find($doc->modelid); ?>
