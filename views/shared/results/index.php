@@ -127,6 +127,7 @@
     <div class="result">
 
     <div class="row content">
+       <?php $item = get_db()->getTable($doc->model)->find($doc->modelid); ?>
 
       <!-- Header. -->
       <div class="result-header col-12">
@@ -149,7 +150,7 @@
       </div>
     </div>
       <div class="row content">
-        <div class="col-3 col-md-6 col-sm-12">
+        <div class="col-3 col-md-6 col-sm-12" id="search_thumbnail">
             <?php if ($recordImage = record_image($item, 'square_thumbnail', array('alt' => $title))): ?>
       
                     <?php echo link_to($item, 'show', $recordImage, array('class' => 'result-image')); ?>
