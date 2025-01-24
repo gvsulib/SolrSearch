@@ -101,7 +101,7 @@
 
 
 <!-- Results. -->
-<div id="solr-results" class="col-9 col-sm-12">
+<div id="solr-results" class="col-9 col-md-12">
 
   <!-- Number found. -->
   <h2 id="num-found">
@@ -139,6 +139,7 @@
         <!--<span class="result-type">(<?php //echo $doc->resulttype; ?>)</span>-->
 
       </div>
+      <div clas="content">
       <div class="row-gutter">
         <div class="col-4 col-md-6 col-sm-12" id="search_thumbnail">
            <?php if ($recordImage = record_image($item, 'square_thumbnail', array('alt' => $title))): ?>
@@ -184,7 +185,7 @@
            </div>
       </div>
 
-       
+       </div>
         </div>
       <?php endif; ?>
             
