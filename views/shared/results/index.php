@@ -10,7 +10,7 @@
 ?>
 
 
-<?php queue_css_file('results'); ?>
+<!--?php queue_css_file('results'); ?-->
 <?php echo head(array('title' => __('Simple Search')));?>
 
 
@@ -34,9 +34,11 @@
   
 </div>
 
+<div class="wrapper">
+  <div class="row content">
 
 <!-- Applied facets. -->
-<div id="solr-applied-facets">
+<div id="solr-applied-facets" class="col-12">
 <P>Applied Limits:</P>
   <ul class="results-applied-facets">
 
@@ -59,10 +61,13 @@
   </ul>
 
 </div>
+</div>
+
+<div class="row content">
 
 
 <!-- Facets. -->
-<div id="solr-facets">
+<div id="solr-facets" class="col-3 col-md-6 col-sm-12">
 
   <h2><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h2>
 
@@ -102,7 +107,7 @@
 
 
 <!-- Results. -->
-<div id="solr-results">
+<div id="solr-results" class="col-9 col-m-6 col-sm-12">
 
   <!-- Number found. -->
   <h2 id="num-found">
