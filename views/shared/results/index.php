@@ -39,12 +39,12 @@
 
 
 <div class="wrapper-full-width wrapper-background wrapper-light">
-
-<div class="row-gutter content">
+<div style="background-color: #f7f7f7;">
+<div class="row content" style="padding: 1em 0;">
 
 
 <!-- Facets. -->
-<div id="solr-facets" class="col-3 col-md-6 col-sm-12" style="background-color: #f7f7f7;">
+<div id="solr-facets" class="col-3 col-md-6 col-sm-12">
 
   <h2><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h2>
 
@@ -109,7 +109,7 @@
 
 
 <!-- Results. -->
-<div id="solr-results" class="col-9 col-m-6 col-sm-12">
+<div id="solr-results" class="col-9 col-m-6 col-sm-12" style="background-color: #ffffff;">
 
   <?php
   if ($results->response->numFound < 1) {
