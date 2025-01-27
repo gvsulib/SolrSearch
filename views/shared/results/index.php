@@ -14,7 +14,7 @@
 <?php echo head(array('title' => __('Simple Search')));?>
 
 <div class="wrapper">
-  <div class="content">
+ <div class="content" style="padding-top: 0; padding-bottom: 0;">
     <div class="row">
       <div class="col-12">
 <h1 class="h2"><?php echo __('Search Results'); ?></h1>
@@ -22,8 +22,10 @@
 </div>
 </div>
 </div>
-<div class="wrapper">
-  <div class="content">
+<div class="wrapper-full-width wrapper-background wrapper-light">
+  <div style="background-color: #f7f7f7;">
+  <div class="content" style="padding-top: 0; padding-bottom: 0;">
+
     <div class="row">
       <div class="col-12">
   <p>
@@ -33,28 +35,21 @@
     </div>
   </div>
 </div>
+</div>
 
-<!-- Search form. -->
-<!--div id="gvsu-cf_header-search" role="search">
-  <form id="search-form" style="margin-bottom: 20px">
-    
-    
-    <label for="q">Search all Digital Collections</label>
-      <input type="text" id="query" title="<?php echo __('Search keywords') ?>" name="q" value="<?php
-        echo array_key_exists('q', $_GET) ? $_GET['q'] : '';
-      ?>" />
-    <button name="submit_search" id="submit_search" type="submit" value="Search">Search</button>
 
-  </form>
- 
-  
-</div-->
+<div class="wrapper-full-width wrapper-background wrapper-light">
 
-<div class="wrapper">
-  <div class="row-gutter content">
+<div class="row-gutter content">
 
-<!-- Applied facets. -->
-<div id="solr-applied-facets" class="col-12">
+
+<!-- Facets. -->
+<div id="solr-facets" class="col-3 col-md-6 col-sm-12" style="background-color: #f7f7f7;">
+
+  <h2><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h2>
+
+  <!-- Applied facets. -->
+<div id="solr-applied-facets">
 <P>Applied Limits:</P>
   <ul class="results-applied-facets">
 
@@ -77,15 +72,6 @@
   </ul>
 
 </div>
-</div>
-
-<div class="row-gutter content">
-
-
-<!-- Facets. -->
-<div id="solr-facets" class="col-3 col-md-6 col-sm-12">
-
-  <h2><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h2>
 
   <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
 
@@ -124,11 +110,6 @@
 
 <!-- Results. -->
 <div id="solr-results" class="col-9 col-m-6 col-sm-12">
-
-  <!-- Number found. -->
-  <h2 id="num-found">
-    <?php echo $results->response->numFound; ?> results
-  </h2>
 
   <?php
   if ($results->response->numFound < 1) {
