@@ -40,7 +40,7 @@
 
 <div class="wrapper-full-width wrapper-background wrapper-light">
 <div style="background-color: #f7f7f7;">
-<div class="row content" style="padding: 1em 0;">
+<div class="row content" style="padding: 0 3em;">
 
 
 <!-- Facets. -->
@@ -109,7 +109,7 @@
 
 
 <!-- Results. -->
-<div id="solr-results" class="col-9 col-m-6 col-sm-12" style="background-color: #ffffff;">
+<div id="solr-results" class="col-9 col-m-6 col-sm-12" style="background-color: #ffffff; padding-left: 1.5em;">
 
   <?php
   if ($results->response->numFound < 1) {
