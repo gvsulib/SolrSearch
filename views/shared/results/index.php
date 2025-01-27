@@ -22,6 +22,17 @@
 </div>
 </div>
 </div>
+<div class="wrapper">
+  <div class="content">
+    <div class="row">
+      <div class="col-12">
+  <p>
+    <?php echo $results->response->numFound; ?> Results for &#8220;<?php echo array_key_exists('q', $_GET) ? $_GET['q'] : ''; ?>&#8221;
+</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Search form. -->
 <!--div id="gvsu-cf_header-search" role="search">
