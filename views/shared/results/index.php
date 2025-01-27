@@ -28,7 +28,7 @@
 
     <div class="row">
       <div class="col-12">
-  <p>
+  <p style="margin-top: 1em;">
     <?php echo $results->response->numFound; ?> Results for &#8220;<?php echo array_key_exists('q', $_GET) ? $_GET['q'] : ''; ?>&#8221;
 </p>
       </div>
