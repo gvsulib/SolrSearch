@@ -65,7 +65,7 @@
         <!-- Remove link. -->
         <?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
         <a href="<?php echo $url; ?>" aria-label="remove">X</a>
-<span style="display:inline-block;clear:both;"></span>
+<span style="display:block;clear:both;height: 1px;"></span>
       </li>
     <?php endforeach; ?>
 
@@ -226,6 +226,10 @@ li.results-applied-facets-items {
   color: #000;
   text-decoration: none;
   font-size: 1.25em;
+}
+ul.results-applied-facets {
+  list-style: none;
+  margin-left: 0;
 }
 </style>
 
