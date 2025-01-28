@@ -47,10 +47,10 @@
 <div id="solr-facets" class="col-3 col-md-6 col-sm-12">
 
   <h1 class="h3"><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h1>
-
+ <?php if(count(SolrSearch_Helpers_Facet::parsefacets()) > 0) { ?>
   <!-- Applied facets. -->
 <div id="solr-applied-facets">
-  <?php echo (count(SolrSearch_Helpers_Facet::parsefacets())); ?>
+
 <p>Applied Limits:</p>
   <ul class="results-applied-facets">
 
@@ -65,7 +65,7 @@
 
         <!-- Remove link. -->
         <?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
-        (<a href="<?php echo $url; ?>">remove</a>)
+        (<a href="<?php echo $url; ?>" aria-label="remove">X</a>)
 
       </li>
     <?php endforeach; ?>
@@ -73,6 +73,7 @@
   </ul>
 
 </div>
+<?php } ?>
 
   <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
 
