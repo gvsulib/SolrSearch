@@ -65,7 +65,7 @@
 
         <!-- Remove link. -->
         <?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
-        (<a href="<?php echo $url; ?>" aria-label="remove">X</a>)
+        <a href="<?php echo $url; ?>" aria-label="remove">X</a>
 
       </li>
     <?php endforeach; ?>
@@ -73,7 +73,7 @@
   </ul>
 
 </div>
-<?php } ?>
+
 
   <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
 
@@ -107,6 +107,8 @@
     <?php endif; ?>
 
   <?php endforeach; ?>
+
+  <?php } ?>
 </div>
 
 
