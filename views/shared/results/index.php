@@ -73,7 +73,7 @@
   </ul>
 
 </div>
-
+ <?php } ?>
 
   <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
 
@@ -108,7 +108,7 @@
 
   <?php endforeach; ?>
 
-  <?php } ?>
+ 
 </div>
 
 
