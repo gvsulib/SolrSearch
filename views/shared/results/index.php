@@ -41,13 +41,13 @@
 <div class="wrapper-full-width wrapper-background wrapper-light">
 <div style="background-color: #f7f7f7;">
 <div class="row content" style="padding: 0 3em;">
-
+<?php $active_facets = count(SolrSearch_Helpers_Facet::parsefacets());
 
 <!-- Facets. -->
 <div id="solr-facets" class="col-3 col-md-6 col-sm-12">
 
   <h1 class="h3"><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h1>
- <?php if(count(SolrSearch_Helpers_Facet::parsefacets())) : ?>
+ <?php //if () : ?>
   <!-- Applied facets. -->
 <div id="solr-applied-facets">
 
@@ -71,7 +71,7 @@
   </ul>
 
 </div>
- <?php endif; ?>
+ <?php //endif; ?>
 
   <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
 
