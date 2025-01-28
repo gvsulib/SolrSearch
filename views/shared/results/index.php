@@ -41,13 +41,13 @@
 <div class="wrapper-full-width wrapper-background wrapper-light">
 <div style="background-color: #f7f7f7;">
 <div class="row content" style="padding: 0 3em;">
-<?php $active_facets = count(SolrSearch_Helpers_Facet::parsefacets()); ?>
 
 <!-- Facets. -->
 <div id="solr-facets" class="col-3 col-md-6 col-sm-12">
 
   <h1 class="h3"><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h1>
- <?php //if () : ?>
+ 
+ <?php if (count(SolrSearch_Helpers_Facet::parsefacets())) : ?>
   <!-- Applied facets. -->
 <div id="solr-applied-facets">
 
@@ -59,19 +59,19 @@
       <li class="results-applied-facets-items">
 
         <!-- Facet label. -->
-        <?php $label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
-        <span class="applied-facet-label"><?php echo $label; ?> : <?php echo $f[1]; ?></span> >
+        <?php $app_label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
+        <span class="applied-facet-label"><?php echo $app_label; ?> : <?php echo $f[1]; ?></span> >
 
         <!-- Remove link. -->
-        <?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
-        <a href="<?php echo $url; ?>" aria-label="remove">X</a>
+        <?php $remove_url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
+        <a href="<?php echo $remove_url; ?>" aria-label="remove">X</a>
       </li>
     <?php endforeach; ?>
 
   </ul>
 
 </div>
- <?php //endif; ?>
+ <?php endif; ?>
 
   <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
 
