@@ -41,7 +41,7 @@
 <div class="wrapper-full-width wrapper-background wrapper-light">
 <div style="background-color: #f7f7f7;">
 <div class="row content" style="padding: 0 3em;">
-<?php $active_facets = count(SolrSearch_Helpers_Facet::parsefacets());
+<?php $active_facets = count(SolrSearch_Helpers_Facet::parsefacets()); ?>
 
 <!-- Facets. -->
 <div id="solr-facets" class="col-3 col-md-6 col-sm-12">
