@@ -231,7 +231,11 @@ ul.results-applied-facets {
   margin-left: 0;
 }
 </style>
+<script>
+var searchTerm = 
+jQuery('#search_bar').html('<form id="search-form" name="search-form" action="/solr-search/results/interceptor" aria-label="Search" method="get"><label for="query" style="">Search all digital collections:</label><input type="text" name="query" id="query" value="<?php echo array_key_exists('q', $_GET) ? $_GET['q'] : ''; ?>" title="Search"> <button name="submit_search" id="submit_search" type="submit" value="Submit">Submit</button></form>');
 
+</script>
 
 
 <?php echo pagination_links(); ?>
