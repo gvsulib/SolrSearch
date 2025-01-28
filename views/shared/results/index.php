@@ -60,8 +60,7 @@
 
         <!-- Facet label. -->
         <?php $label = SolrSearch_Helpers_Facet::keyToLabel($f[0]); ?>
-        <span class="applied-facet-label"><?php echo $label; ?></span> >
-        <span class="applied-facet-value"><?php echo $f[1]; ?></span>
+        <span class="applied-facet-label"><?php echo $label; ?> : <?php echo $f[1]; ?></span> >
 
         <!-- Remove link. -->
         <?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
@@ -208,7 +207,27 @@
   </div>
 </div>
 </div>
-
+<style>
+li.results-applied-facets-items {
+  display: block;
+  padding: .5em;
+  background-color: #d9d9d9;
+  font-weight: bold;
+}
+.results-applied-facets-items span {
+  display: block;
+  width: 88%;
+  float: left;
+}
+.results-applied-facets-items a {
+  display: block;
+  width: 8%;
+  float:right;
+  color: #000;
+  text-decoration: none;
+  font-size: 1.25em;
+}
+</style>
 
 
 
