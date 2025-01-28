@@ -46,11 +46,11 @@
 <!-- Facets. -->
 <div id="solr-facets" class="col-3 col-md-6 col-sm-12">
 
-  <h2><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h2>
+  <h1 class="h3"><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h1>
 
   <!-- Applied facets. -->
 <div id="solr-applied-facets">
-<P>Applied Limits:</P>
+<p>Applied Limits:</p>
   <ul class="results-applied-facets">
 
     <!-- Get the applied facets. -->
@@ -80,7 +80,7 @@
 
       <!-- Facet label. -->
       <?php $label = SolrSearch_Helpers_Facet::keyToLabel($name); ?>
-      <strong><?php echo $label; ?></strong>
+      <strong><?php echo $label; ?></strong> (<?php echo (count(get_object_vars($facets))); ?>)
 
       <ul>
         <!-- Facets. -->
@@ -133,13 +133,13 @@
         <?php $url = SolrSearch_Helpers_View::getDocumentUrl($doc); ?>
 
         <!-- Title. -->
-        <h3><a href="<?php echo $url; ?>" class="result-title"><?php
+        <h1 class="h2"><a href="<?php echo $url; ?>" class="result-title"><?php
                 $title = is_array($doc->title) ? $doc->title[0] : $doc->title;
                 if (empty($title)) {
                     $title = '<em>' . __('Untitled') . '</em>';
                 }
                 echo $title;
-            ?></a></h3>
+            ?></a></h1>
 
         <!-- Result type. -->
         <!--<span class="result-type">(<?php //echo $doc->resulttype; ?>)</span>-->
