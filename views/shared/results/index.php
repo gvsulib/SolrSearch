@@ -65,7 +65,7 @@
         <!-- Remove link. -->
         <?php $url = SolrSearch_Helpers_Facet::removeFacet($f[0], $f[1]); ?>
         <a href="<?php echo $url; ?>" aria-label="remove">X</a>
-
+<span style="display:inline-block;clear:both;"></span>
       </li>
     <?php endforeach; ?>
 
