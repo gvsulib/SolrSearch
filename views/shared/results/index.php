@@ -50,6 +50,7 @@
 
   <!-- Applied facets. -->
 <div id="solr-applied-facets">
+  <?php echo (count(SolrSearch_Helpers_Facet::parsefacets())); ?>
 <p>Applied Limits:</p>
   <ul class="results-applied-facets">
 
