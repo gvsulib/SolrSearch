@@ -212,6 +212,7 @@ li.results-applied-facets-items {
   padding: .5em;
   background-color: #d9d9d9;
   font-weight: bold;
+  margin-bottom: 1em;
 }
 .results-applied-facets-items span {
   display: block;
@@ -220,10 +221,14 @@ li.results-applied-facets-items {
 }
 .results-applied-facets-items a {
   display: block;
-  width: 8%;
-  color: #000;
-  text-decoration: none;
-  font-size: 1.25em;
+    width: 8%;
+    color: #fff;
+    text-decoration: none;
+    font-size: .8em;
+    background-color: #000;
+    text-align: center;
+    border-radius: 50%;
+    height: 1.8em;
 }
 ul.results-applied-facets {
   list-style: none;
