@@ -47,11 +47,8 @@
 
   <h1 class="h3"><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h1>
  
- <?php if (count(SolrSearch_Helpers_Facet::parsefacets())) : ?>
   <!-- Applied facets. -->
 <div id="solr-applied-facets">
-
-<p>Applied Limits:</p>
   <ul class="results-applied-facets">
 
     <!-- Get the applied facets. -->
@@ -71,7 +68,6 @@
   </ul>
 
 </div>
- <?php endif; ?>
 
   <?php foreach ($results->facet_counts->facet_fields as $name => $facets): ?>
 
