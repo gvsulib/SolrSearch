@@ -27,11 +27,13 @@
   <div class="content" style="padding-top: 0; padding-bottom: 0;">
 
     <div class="row">
-      <div class="col-12">
+      <div class="col-9 col-sm-12">
   <p style="margin-top: 1em;">
     <?php echo $results->response->numFound; ?> Results for &#8220;<?php echo array_key_exists('q', $_GET) ? $_GET['q'] : ''; ?>&#8221;
 </p>
       </div>
+      <div class="col-3 col-sm-12" id="facet-toggle">
+        <button class="btn btn-default" id="facet-button">Limit Your Search</button>
     </div>
   </div>
 </div>
@@ -234,6 +236,11 @@ ul.results-applied-facets {
 <script>
 var searchTerm = 
 jQuery('#search_bar').html('<form id="search-form" name="search-form" action="/solr-search/results/interceptor" aria-label="Search" method="get"><label for="query" style="">Search all digital collections:</label><input type="text" name="query" id="query" value="<?php echo array_key_exists('q', $_GET) ? $_GET['q'] : ''; ?>" title="Search"> <button name="submit_search" id="submit_search" type="submit" value="Submit">Submit</button></form>');
+
+jQuery('#facet-button').on('click', function() {
+  jQuery('body').append('<div id="search-facet-overlay"></div>');
+  jQuery('#solr-facets').show();
+});
 
 </script>
 
