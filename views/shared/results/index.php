@@ -27,13 +27,13 @@
   <div class="content" style="padding-top: 0; padding-bottom: 0;">
 
     <div class="row">
-      <div class="col-9 col-sm-12">
+      <div class="col-12 col-sm-6">
   <p style="margin-top: 1em;">
     <?php echo $results->response->numFound; ?> Results for &#8220;<?php echo array_key_exists('q', $_GET) ? $_GET['q'] : ''; ?>&#8221;
 </p>
       </div>
-      <div class="col-3 col-sm-12" id="facet-toggle">
-        <button class="btn btn-default" id="facet-button">Limit Your Search</button>
+      <div class="col-12 col-sm-6" id="facet-toggle">
+        <button class="btn btn-default" id="facet-button" style="margin-top: .5em;">Limit Your Search</button>
     </div>
   </div>
 </div>
