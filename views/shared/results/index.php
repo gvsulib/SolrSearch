@@ -243,7 +243,7 @@ jQuery('#facet-button').on('click', function() {
   jQuery('#search-facet-overlay').show();
 
   jQuery('#search-facet-overlay').on('click', function() {
-    jQuery(this).hide():
+    jQuery(this).hide();
     jQuery('#solr-facets').hide();
   });
 
