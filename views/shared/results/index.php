@@ -45,7 +45,7 @@
 <div class="row content" style="padding: 0 3em;">
 
 <!-- Facets. -->
-<div id="solr-facets" class="col-3 col-md-6 col-sm-12">
+<div id="solr-facets" class="col-3 col-md-4 col-sm-12">
 
   <h1 class="h3"><?php if ($results->response->numFound > 0) {echo __('Limit your search'); }?></h1>
  
@@ -109,7 +109,7 @@
 
 
 <!-- Results. -->
-<div id="solr-results" class="col-9 col-m-6 col-sm-12" style="background-color: #ffffff; padding-left: 1.5em;">
+<div id="solr-results" class="col-9 col-md-8 col-sm-12" style="background-color: #ffffff; padding-left: 1.5em;">
 
   <?php
   if ($results->response->numFound < 1) {
@@ -206,19 +206,19 @@
 </div>
 <style>
 li.results-applied-facets-items {
-  display: flex;
+  display: inline-block;
   padding: .5em;
   background-color: #d9d9d9;
   font-weight: bold;
   margin-bottom: 1em;
 }
 .results-applied-facets-items span {
-  display: block;
+  display: inline-block;
   width: 88%;
  
 }
 .results-applied-facets-items a {
-  display: block;
+  display: inline-block;
     width: 8%;
     color: #fff;
     text-decoration: none;
@@ -240,6 +240,13 @@ jQuery('#search_bar').html('<form id="search-form" name="search-form" action="/s
 jQuery('#facet-button').on('click', function() {
   jQuery('body').append('<div id="search-facet-overlay"></div>');
   jQuery('#solr-facets').show();
+  jQuery('#search-facet-overlay').show();
+
+  jQuery('#search-facet-overlay').on('click', function() {
+    jQuery(this).hide():
+    jQuery('#solr-facets').hide();
+  });
+
 });
 
 </script>
