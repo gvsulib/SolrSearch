@@ -32,7 +32,7 @@
     <?php echo $results->response->numFound; ?> Results for &#8220;<?php echo array_key_exists('q', $_GET) ? $_GET['q'] : ''; ?>&#8221;
 </p>
       </div>
-      <div class="col-12 col-sm-6" id="facet-toggle">
+      <div class="col-12 col-sm-6" id="facet-toggle" style="text-align:right;">
         <button class="btn btn-default" id="facet-button" style="margin-top: .5em;">Limit Your Search</button>
     </div>
   </div>
