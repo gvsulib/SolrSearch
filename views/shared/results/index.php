@@ -146,7 +146,7 @@
 
       </div>
     </div>
-      <div class="row content">
+      <div class="row-gutter content">
         <div class="col-3 col-md-6 col-sm-12" id="search_thumbnail">
             <?php if ($recordImage = record_image($item, 'fullsize', array('alt' => $title))): ?>
       
