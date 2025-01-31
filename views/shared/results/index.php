@@ -148,7 +148,7 @@
     </div>
       <div class="row content">
         <div class="col-3 col-md-6 col-sm-12" id="search_thumbnail">
-            <?php if ($recordImage = record_image($item, 'square_thumbnail', array('alt' => $title))): ?>
+            <?php if ($recordImage = record_image($item, 'fullsize', array('alt' => $title))): ?>
       
                     <?php echo link_to($item, 'show', $recordImage, array('class' => 'result-image')); ?>
             <?php endif; ?>
