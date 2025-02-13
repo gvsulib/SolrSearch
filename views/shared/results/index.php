@@ -219,14 +219,9 @@ li.results-applied-facets-items {
 }
 .results-applied-facets-items a {
   display: inline-block;
-    width: 8%;
-    color: #fff;
+    color: #333;
     text-decoration: none;
-    font-size: .8em;
-    background-color: #333;
-    text-align: center;
-    border-radius: 50%;
-    height: 1.8em;
+   
 }
 ul.results-applied-facets {
   list-style: none;
