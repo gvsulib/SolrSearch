@@ -1,7 +1,5 @@
 # [SolrSearch][plugin]
 
-![Solr](https://lucene.apache.org/images/solr.png)
-
 **SolrSearch** replaces the default Omeka search interface with one powered by
 [Solr][solr], a scalable and feature-rich search engine that supports faceting
 and hit highlighting. In most cases, Omeka's built-in searching capabilities
@@ -21,8 +19,8 @@ take a look at Solr:
 
 ## Requirements
 
-To use the plugin, you'll need access to an installation of Solr 4.0+ running
-the core included in the plugin source code under `solr-core/omeka`. For
+To use the plugin, you'll need access to an installation of Solr 9.0+ running
+the core in this repository: https://github.com/gvsulib/omeka-solr-core. For
 general information about how to get up and running with Solr, check out the
 official [installation documentation][solr-install].
 
@@ -31,9 +29,7 @@ official [installation documentation][solr-install].
 ### Solr Core
 
 To deploy the Solr core, just copy the `solr-core/omeka` directory into your
-Solr home directory. For example, if your deployment is based on the default
-Solr 4 multicore template, you might end up with directories for `core0`,
-`core1`, and `omeka`. Once the directory is in place, restart/reload Solr to
+Solr home directory. Once the directory is in place, restart/reload Solr to
 register the new core.
 
 ### Omeka Plugin
@@ -41,12 +37,9 @@ register the new core.
 Once the core is up and running, install SolrSearch just like any other Omeka
 plugin:
 
-  1. Download the plugin from the [Omeka addons repository][plugin] and unzip
-     the archive.
+  1. Download the plugin code from this repo into the Omeka Plugins directory.
 
-  2. Upload the `SolrSearch` directory into the Omeka `plugins` directory.
-
-  3. Open up the "Plugins" page in Omeka and click the "Install" button for
+  2. Open up the "Plugins" page in Omeka and click the "Install" button for
      Solr Search.
 
 For more information, check out the [Managing Plugins][managing-plugins] guide.
@@ -68,12 +61,6 @@ connection parameters:
 After making changes to the connection parameters, click the "Save Settings"
 button. If the plugin is able to connect to Solr, a greet notification saying
 "Solr connection is valid" will be displayed.
-
-### Collections Configuration
-
-You can also decide not to index certain collections of items. By default, all
-collections are indexed. However, if you go to the "Collections" tab, then you
-can select collections to *exclude* from indexing.
 
 ### Field Configuration
 
@@ -177,26 +164,4 @@ extra steps after going through the standard Omeka plugin upgrade process.
 
 Once the content has been indexed, head to the public site and type a search query into the regular Omeka search input. When the query is submitted, SolrSearch will intercept the request and redirect to a custom interface that displays results from Solr with faceting and hit highlighting.
 
-## Thanks
 
-This work has been a collaboration. During development, we've gotten help from a number of others:
-
-* @anuragji
-* @marcobat
-* Adam Doan
-* @cokernel
-* Dave Lester
-
-[plugin]: http://omeka.org/add-ons/plugins/SolrSearch/
-[solr]: http://lucene.apache.org/solr
-[solr-install]: https://wiki.apache.org/solr/SolrInstall 
-[managing-plugins]: https://omeka.org/codex/Managing_Plugins
-[homebrew]: http://mxcl.github.com/homebrew/
-[node]: http://nodejs.org/
-[gems]: http://rubygems.org/
-[bundler]: http://gembundler.com/
-[rvm]: http://beginrescueend.com/
-[multicore]: http://wiki.apache.org/solr/CoreAdmin
-[rvm]: https://rvm.io/
-[210]: https://github.com/scholarslab/SolrSearch/releases/tag/2.1.0
-[solr-core]: #solr-core
