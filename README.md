@@ -1,4 +1,7 @@
-# [SolrSearch][plugin]
+# SolrSearch Plugin
+
+This is our local instance of the SolrSearch plugin originally developed by Scholarslab (https://github.com/scholarslab/SolrSearch).  We've modified the plugin to work with our 
+omeka theme and updated the core to work with more recent versions of Solr.
 
 **SolrSearch** replaces the default Omeka search interface with one powered by
 [Solr][solr], a scalable and feature-rich search engine that supports faceting
