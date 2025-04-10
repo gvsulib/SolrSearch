@@ -4,7 +4,7 @@ This is our local instance of the SolrSearch plugin originally developed by Scho
 omeka theme and updated the core to work with more recent versions of Solr.
 
 **SolrSearch** replaces the default Omeka search interface with one powered by
-[Solr][solr], a scalable and feature-rich search engine that supports faceting
+Solr(https://solr.apache.org/guide/solr/latest/index.html), a scalable and feature-rich search engine that supports faceting
 and hit highlighting. In most cases, Omeka's built-in searching capabilities
 work great, but there are a couple of situations where it might make sense to
 take a look at Solr:
@@ -25,7 +25,7 @@ take a look at Solr:
 To use the plugin, you'll need access to an installation of Solr 9.0+ running
 the core in this repository: https://github.com/gvsulib/omeka-solr-core. For
 general information about how to get up and running with Solr, check out the
-official [installation documentation][solr-install].
+official installation docs (https://solr.apache.org/guide/solr/latest/deployment-guide/system-requirements.html).
 
 ## Installation
 
@@ -45,7 +45,7 @@ plugin:
   2. Open up the "Plugins" page in Omeka and click the "Install" button for
      Solr Search.
 
-For more information, check out the [Managing Plugins][managing-plugins] guide.
+For more information, check out the Managing Plugins guide (https://omeka.org/classic/docs/Admin/Adding_and_Managing_Plugins/).
 
 ## Configuration
 
